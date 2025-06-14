@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Will You Kiss Me?</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: 'Arial', sans-serif;
+      background-color: #fff0f5;
+    }
+    #question {
+      font-size: 2em;
+      margin-top: 50px;
+    }
+    .btn {
+      font-size: 1.5em;
+      padding: 10px 20px;
+      margin: 20px;
+      cursor: pointer;
+    }
+    #catImage {
+      margin-top: 20px;
+      width: 200px;
+      transition: width 0.3s ease;
+    }
+    #hearts {
+      display: none;
+      font-size: 3em;
+      animation: floatHearts 2s ease-in-out infinite;
+    }
+    @keyframes floatHearts {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="question">Will you kiss me? 😚</div>
+  <button class="btn" onclick="sayYes()">Yes 😘</button>
+  <button class="btn" onclick="sayNo()">No 🙁</button>
+
+  <div>
+    <img id="catImage" src="https://media.giphy.com/media/Q56ZI04r6CakM/giphy.gif" alt="Sad cat">
+  </div>
+
+  <div id="result" style="font-size: 2em; margin-top: 30px;"></div>
+  <div id="hearts">💖💗💘💓💞</div>
+
+  <script>
+    let catSize = 200;
+
+    function sayNo() {
+      catSize += 50;
+      document.getElementById("catImage").style.width = catSize + "px";
+    }
+
+    function sayYes() {
+      document.getElementById("question").textContent = "Yuppiii thanks baby 💋";
+      document.getElementById("hearts").style.display = "block";
+      document.getElementById("catImage").src = "https://media.giphy.com/media/l4FGuhL4U2WyjdkaY/giphy.gif";
+    }
+  </script>
+
+</body>
+</html>
