@@ -5,62 +5,90 @@
   <title>Will You Kiss Me?</title>
   <style>
     body {
-      text-align: center;
-      font-family: 'Arial', sans-serif;
       background-color: #fff0f5;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      padding: 50px;
     }
+
     #question {
-      font-size: 2em;
-      margin-top: 50px;
+      font-size: 2.5em;
+      margin-bottom: 30px;
     }
+
     .btn {
       font-size: 1.5em;
-      padding: 10px 20px;
-      margin: 20px;
+      padding: 12px 24px;
+      margin: 15px;
+      border: none;
+      border-radius: 8px;
       cursor: pointer;
+      transition: transform 0.2s;
     }
+
+    .btn:hover {
+      transform: scale(1.1);
+    }
+
+    .yes {
+      background-color: #ff69b4;
+      color: white;
+    }
+
+    .no {
+      background-color: #d3d3d3;
+      color: black;
+    }
+
     #catImage {
-      margin-top: 20px;
       width: 200px;
-      transition: width 0.3s ease;
+      margin-top: 20px;
+      transition: width 0.4s ease;
     }
+
     #hearts {
-      display: none;
       font-size: 3em;
-      animation: floatHearts 2s ease-in-out infinite;
+      margin-top: 20px;
+      display: none;
+      animation: floatHearts 2s infinite ease-in-out;
     }
+
     @keyframes floatHearts {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-      100% { transform: translateY(0); }
+      0% { transform: translateY(0); opacity: 1; }
+      50% { transform: translateY(-30px); opacity: 0.7; }
+      100% { transform: translateY(0); opacity: 1; }
     }
   </style>
 </head>
 <body>
 
-  <div id="question">Will you kiss me? 😚</div>
-  <button class="btn" onclick="sayYes()">Yes 😘</button>
-  <button class="btn" onclick="sayNo()">No 🙁</button>
+  <div id="question">Will you kiss me? 😽</div>
+  <button class="btn yes" onclick="sayYes()">Yes 😘</button>
+  <button class="btn no" onclick="sayNo()">No 🙈</button>
 
   <div>
-    <img id="catImage" src="https://media.giphy.com/media/Q56ZI04r6CakM/giphy.gif" alt="Sad cat">
+    <img id="catImage" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGYyMDE2NmFkZmFkYmFlZjcwNTczNzMwODJmNjY1ZTIzNTJhMTYxZCZjdD1n/q1MeAPDDMb43K/giphy.gif" alt="Sad Cat">
   </div>
 
-  <div id="result" style="font-size: 2em; margin-top: 30px;"></div>
-  <div id="hearts">💖💗💘💓💞</div>
+  <div id="hearts">💞💖💘💝💗</div>
 
   <script>
     let catSize = 200;
 
     function sayNo() {
       catSize += 50;
-      document.getElementById("catImage").style.width = catSize + "px";
+      const cat = document.getElementById("catImage");
+      cat.style.width = catSize + "px";
     }
 
     function sayYes() {
       document.getElementById("question").textContent = "Yuppiii thanks baby 💋";
+      document.getElementById("catImage").src = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmMyZGU1NGU4M2I5ZmI3ZTgxYmY2NzM1OGZkZDdiOTU4MzdkNGU0OSZjdD1n/MaGgBuF6OMeZK/giphy.gif";
       document.getElementById("hearts").style.display = "block";
-      document.getElementById("catImage").src = "https://media.giphy.com/media/l4FGuhL4U2WyjdkaY/giphy.gif";
+
+      // Hide buttons after "Yes"
+      const buttons = document.querySelectorAll('.btn');
+      buttons.forEach(btn => btn.style.display = "none");
     }
   </script>
 
